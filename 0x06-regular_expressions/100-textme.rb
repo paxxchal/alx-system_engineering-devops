@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-ARGF.each do |line|
-        match = line.match(/^(?<sender>[^,]+),(?<receiver>[^,]+),(?<flags>[^,]+)/)
-        puts "#{match[:sender]},#{match[:receiver]},#{match[:flags]}"
-      end
+from = ARGV[0].scan(/from:(.*?)\]/)
+to = ARGV[0].scan(/to:(.*?)\]/)
+flags = ARGV[0].scan(/flags:(.*?)\]/)
+puts [from, to, flags].join(',')
