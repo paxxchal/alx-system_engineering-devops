@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script configures the DNS resolution for the Ubuntu server
+
+# Add localhost entry to /etc/hosts if it doesn't exist
+if ! grep -q "127.0.0.2\slocalhost$" /etc/hosts; then
+    echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts >/dev/null
+fi
+
+# Add facebook.com entry to /etc/hosts if it doesn't exist
+if ! grep -q "8.8.8.8\sfacebook.com$" /etc/hosts; then
+    echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts >/dev/null
+fi
